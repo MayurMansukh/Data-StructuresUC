@@ -173,6 +173,34 @@ public class LinkedList {
         prev.Next = temp.Next;
     }
 
+    public void sortLinkList() // sort linked List
+    {
+
+        Node current = head, index = null;
+
+        int temp;
+
+        if (head == null) {
+            return;
+        }
+        else {
+            while (current != null) {
+                index = current.Next;
+
+                while (index != null) {
+                    if (current.data > index.data) {
+                        temp = current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+
+                    index = index.Next;
+                }
+                current = current.Next;
+            }
+        }
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -200,7 +228,7 @@ public class LinkedList {
         list.addNode(70);
         list.displayList();
 
-        list.deleteGivenNode(40);
+        list.sortLinkList();
         list.displayList();
 
 //        list.addAtStart(70);
