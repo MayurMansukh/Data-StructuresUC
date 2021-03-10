@@ -140,6 +140,20 @@ public class LinkedList {
             System.out.println("Element is not present in the list");
     }
 
+    public void insertAfter(Node prev_node, int new_data) // add node after given node
+    {
+        if (prev_node == null)
+        {
+            System.out.println("The given previous node cannot be null");
+            return;
+        }
+        Node new_node = new Node(new_data);
+
+        new_node.Next = prev_node.Next;
+
+        prev_node.Next = new_node;
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -165,7 +179,7 @@ public class LinkedList {
         list.addNode(30);
         list.addNode(70);
         list.displayList();
-       list.searchNode(30);
+       list.insertAfter(30,40);
 
 //        list.addAtStart(70);
 //        list.addAtStart(30);
