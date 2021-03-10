@@ -116,6 +116,30 @@ public class LinkedList {
         }
     }
 
+    public void searchNode(int data) { // search node with key
+        Node current = head;
+        int i = 1;
+        boolean flag = false;
+
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+            while(current != null) {
+                if(current.data == data) {
+                    flag = true;
+                    break;
+                }
+                i++;
+                current = current.Next;
+            }
+        }
+        if(flag)
+            System.out.println("Element " +data+ " is present in the list at the position : " + i);
+        else
+            System.out.println("Element is not present in the list");
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -140,7 +164,8 @@ public class LinkedList {
         list.addNode(56);
         list.addNode(30);
         list.addNode(70);
-        list.deleteLastElement();
+        list.displayList();
+       list.searchNode(30);
 
 //        list.addAtStart(70);
 //        list.addAtStart(30);
@@ -149,7 +174,7 @@ public class LinkedList {
 //        list.addAtEnd(70);
 //        list.addAtmiddle(30,1);
 
-        list.displayList();
+
 
 
 
