@@ -79,21 +79,17 @@ public class LinkedList {
     }
 
 
-    public void deleteFirstElement() {
+    public void deleteFirstElement() { // delete first element of list
 
         if(head == null) {
             System.out.println("List is empty");
             return;
         }
         else {
-            //Checks whether the list contains only one node
-            //If not, the head will point to next node in the list and tail will point to the new head.
-            if(head != tail) {
+             if(head != tail) {
                 head = head.Next;
             }
-            //If the list contains only one node
-            //then, it will remove it and both head and tail will point to null
-            else {
+             else {
                 head = tail = null;
             }
         }
