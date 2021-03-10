@@ -78,6 +78,27 @@ public class LinkedList {
         return newnode;
     }
 
+
+    public void deleteFirstElement() {
+
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        else {
+            //Checks whether the list contains only one node
+            //If not, the head will point to next node in the list and tail will point to the new head.
+            if(head != tail) {
+                head = head.Next;
+            }
+            //If the list contains only one node
+            //then, it will remove it and both head and tail will point to null
+            else {
+                head = tail = null;
+            }
+        }
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -98,17 +119,18 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list=new LinkedList();
-//
-//        list.addNode(56);
-//        list.addNode(30);
-//        list.addNode(70);
+
+        list.addNode(56);
+        list.addNode(30);
+        list.addNode(70);
+        list.deleteFirstElement();
 
 //        list.addAtStart(70);
 //        list.addAtStart(30);
 //        list.addAtStart(56);
-        list.addAtEnd(56);
-        list.addAtEnd(70);
-        list.addAtmiddle(30,1);
+//        list.addAtEnd(56);
+//        list.addAtEnd(70);
+//        list.addAtmiddle(30,1);
 
         list.displayList();
 
