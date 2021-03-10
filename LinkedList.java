@@ -154,6 +154,25 @@ public class LinkedList {
         prev_node.Next = new_node;
     }
 
+    void deleteGivenNode(int key) // delete given node in linked list
+    {
+
+        Node temp = head, prev = null;
+
+        if (temp != null && temp.data == key) {
+            head = temp.Next;
+            return;
+        }
+        while (temp != null && temp.data != key) {
+            prev = temp;
+            temp = temp.Next;
+        }
+        if (temp == null)
+            return;
+
+        prev.Next = temp.Next;
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -177,9 +196,12 @@ public class LinkedList {
 
         list.addNode(56);
         list.addNode(30);
+        list.addNode(40);
         list.addNode(70);
         list.displayList();
-       list.insertAfter(30,40);
+
+        list.deleteGivenNode(40);
+        list.displayList();
 
 //        list.addAtStart(70);
 //        list.addAtStart(30);
