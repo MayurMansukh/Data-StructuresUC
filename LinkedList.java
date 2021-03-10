@@ -79,17 +79,38 @@ public class LinkedList {
     }
 
 
-    public void deleteFirstElement() { // delete first element of list
+    public void deleteFirstElement() {
 
         if(head == null) {
             System.out.println("List is empty");
             return;
         }
         else {
-             if(head != tail) {
+
+            if(head != tail) {
                 head = head.Next;
             }
-             else {
+            else {
+                head = tail = null;
+            }
+        }
+    }
+
+    public void deleteLastElement() { // delete last element in list
+        if(head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        else {
+            if(head != tail ) {
+                Node current = head;
+                while(current.Next != tail) {
+                    current = current.Next;
+                }
+                tail = current;
+                tail.Next = null;
+            }
+            else {
                 head = tail = null;
             }
         }
@@ -119,7 +140,7 @@ public class LinkedList {
         list.addNode(56);
         list.addNode(30);
         list.addNode(70);
-        list.deleteFirstElement();
+        list.deleteLastElement();
 
 //        list.addAtStart(70);
 //        list.addAtStart(30);
