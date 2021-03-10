@@ -1,3 +1,5 @@
+
+
 public class LinkedList {
 
     class Node{
@@ -42,6 +44,19 @@ public class LinkedList {
             head.Next = temp;
         }
     }
+
+    public void addAtEnd(int data) { //add nodes at end postion of Linked List
+        Node newNode = new Node(data);
+        if(head == null) {
+
+            head = newNode;
+            tail = newNode;
+        }
+        else {
+            tail.Next = newNode;
+            tail = newNode;
+        }
+    }
     public void displayList() { // display linked List
         Node current=head;
 
@@ -67,9 +82,13 @@ public class LinkedList {
 //        list.addNode(30);
 //        list.addNode(70);
 
-        list.addAtStart(70);
-        list.addAtStart(30);
-        list.addAtStart(56);
+//        list.addAtStart(70);
+//        list.addAtStart(30);
+//        list.addAtStart(56);
+        list.addAtEnd(56);
+        list.addAtEnd(30);
+        list.addAtEnd(70);
+
 
         list.displayList();
 
