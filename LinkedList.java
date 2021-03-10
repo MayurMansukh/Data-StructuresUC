@@ -1,4 +1,3 @@
-
 public class LinkedList {
 
     class Node{
@@ -14,7 +13,7 @@ public class LinkedList {
     public Node head=null;
     public Node tail=null;
 
-    public void addNode(int data){ //Add Node in list
+    public void addNode(int data){ //add nodes in Linked List
 
         Node newNode=new Node(data);
 
@@ -29,8 +28,21 @@ public class LinkedList {
 
             }
 
+    public void addAtStart(int data) { // add nodes at first postion in LinkedList
 
-    public void displayList() {  //display List
+        Node newNode = new Node(data);
+
+        if(head == null) {
+            head = newNode;
+            tail = newNode;
+        }
+        else {
+            Node temp = head;
+            head = newNode;
+            head.Next = temp;
+        }
+    }
+    public void displayList() { // display linked List
         Node current=head;
 
         if (head==null){
@@ -50,12 +62,18 @@ public class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list=new LinkedList();
+//
+//        list.addNode(56);
+//        list.addNode(30);
+//        list.addNode(70);
 
-        list.addNode(56);
-        list.addNode(30);
-        list.addNode(70);
+        list.addAtStart(70);
+        list.addAtStart(30);
+        list.addAtStart(56);
 
         list.displayList();
+
+
 
     }
 
