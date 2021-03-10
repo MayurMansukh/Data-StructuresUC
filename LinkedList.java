@@ -57,6 +57,27 @@ public class LinkedList {
             tail = newNode;
         }
     }
+
+    public Node addAtmiddle(int data, int position){
+
+        Node newnode = new Node(data);
+        newnode.data = data;
+        Node cur = head;
+        Node prev = null;
+        int i = 0;
+        while (i < position) {
+            prev = cur;
+            cur = cur.Next;
+            i++;
+        }
+        newnode.Next = cur;
+        if (prev != null) {
+            prev.Next = newnode;
+            return head;
+        }
+        return newnode;
+    }
+
     public void displayList() { // display linked List
         Node current=head;
 
@@ -86,9 +107,8 @@ public class LinkedList {
 //        list.addAtStart(30);
 //        list.addAtStart(56);
         list.addAtEnd(56);
-        list.addAtEnd(30);
         list.addAtEnd(70);
-
+        list.addAtmiddle(30,1);
 
         list.displayList();
 
